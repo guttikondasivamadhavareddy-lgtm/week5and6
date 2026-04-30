@@ -5,31 +5,32 @@ public class week5and6 {
 
         Scanner sc = new Scanner(System.in);
 
-        String[] names = {"Amar", "Akbar", "Anthony"};
-        int[] age = new int[3];
-        double[] height = new double[3];
+        System.out.print("Enter number: ");
+        int number = sc.nextInt();
 
-        for (int i = 0; i < 3; i++) {
-            System.out.print("Enter age of " + names[i] + ": ");
-            age[i] = sc.nextInt();
+        int maxDigit = 10;
+        int[] digits = new int[maxDigit];
+        int index = 0;
 
-            System.out.print("Enter height of " + names[i] + ": ");
-            height[i] = sc.nextDouble();
+        // Extract digits
+        while (number != 0 && index < maxDigit) {
+            digits[index] = number % 10;
+            number = number / 10;
+            index++;
         }
 
-        int youngestIndex = 0;
-        int tallestIndex = 0;
+        int largest = 0, secondLargest = 0;
 
-        for (int i = 1; i < 3; i++) {
-            if (age[i] < age[youngestIndex]) {
-                youngestIndex = i;
-            }
-            if (height[i] > height[tallestIndex]) {
-                tallestIndex = i;
+        for (int i = 0; i < index; i++) {
+            if (digits[i] > largest) {
+                secondLargest = largest;
+                largest = digits[i];
+            } else if (digits[i] > secondLargest && digits[i] != largest) {
+                secondLargest = digits[i];
             }
         }
 
-        System.out.println("Youngest: " + names[youngestIndex]);
-        System.out.println("Tallest: " + names[tallestIndex]);
+        System.out.println("Largest digit: " + largest);
+        System.out.println("Second largest digit: " + secondLargest);
     }
 }
