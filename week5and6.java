@@ -4,19 +4,28 @@ public class week5and6 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int number;
 
-        System.out.print("Enter number: ");
-        number = sc.nextInt();
+        double[] arr = new double[10];
+        double total = 0.0;
+        int index = 0;
 
-        int[] table = new int[10];
+        while (true) {
+            System.out.print("Enter number: ");
+            double num = sc.nextDouble();
 
-        for (int i = 0; i < 10; i++) {
-            table[i] = number * (i + 1);
+            if (num <= 0 || index == 10) {
+                break;
+            }
+
+            arr[index] = num;
+            index++;
         }
 
-        for (int i = 0; i < 10; i++) {
-            System.out.println(number + " * " + (i + 1) + " = " + table[i]);
+        for (int i = 0; i < index; i++) {
+            total += arr[i];
+            System.out.println("Value: " + arr[i]);
         }
+
+        System.out.println("Total sum = " + total);
     }
 }
