@@ -5,46 +5,31 @@ public class week5and6 {
 
         Scanner sc = new Scanner(System.in);
 
-        double[] salary = new double[10];
-        double[] years = new double[10];
-        double[] bonus = new double[10];
-        double[] newSalary = new double[10];
+        String[] names = {"Amar", "Akbar", "Anthony"};
+        int[] age = new int[3];
+        double[] height = new double[3];
 
-        double totalBonus = 0, totalOldSalary = 0, totalNewSalary = 0;
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Enter age of " + names[i] + ": ");
+            age[i] = sc.nextInt();
 
-        // Input
-        for (int i = 0; i < 10; i++) {
-            System.out.print("Enter salary for employee " + (i + 1) + ": ");
-            salary[i] = sc.nextDouble();
+            System.out.print("Enter height of " + names[i] + ": ");
+            height[i] = sc.nextDouble();
+        }
 
-            System.out.print("Enter years of service: ");
-            years[i] = sc.nextDouble();
+        int youngestIndex = 0;
+        int tallestIndex = 0;
 
-            if (salary[i] <= 0 || years[i] < 0) {
-                System.out.println("Invalid input. Re-enter.");
-                i--; // retry same index
-                continue;
+        for (int i = 1; i < 3; i++) {
+            if (age[i] < age[youngestIndex]) {
+                youngestIndex = i;
+            }
+            if (height[i] > height[tallestIndex]) {
+                tallestIndex = i;
             }
         }
 
-        // Calculation
-        for (int i = 0; i < 10; i++) {
-
-            if (years[i] > 5) {
-                bonus[i] = salary[i] * 0.05;
-            } else {
-                bonus[i] = salary[i] * 0.02;
-            }
-
-            newSalary[i] = salary[i] + bonus[i];
-
-            totalBonus += bonus[i];
-            totalOldSalary += salary[i];
-            totalNewSalary += newSalary[i];
-        }
-
-        System.out.println("\nTotal Old Salary: " + totalOldSalary);
-        System.out.println("Total Bonus: " + totalBonus);
-        System.out.println("Total New Salary: " + totalNewSalary);
+        System.out.println("Youngest: " + names[youngestIndex]);
+        System.out.println("Tallest: " + names[tallestIndex]);
     }
 }
