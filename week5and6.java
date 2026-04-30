@@ -4,34 +4,19 @@ public class week5and6 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int[] arr = new int[5];
+        int number;
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print("Enter number " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
+        System.out.print("Enter number: ");
+        number = sc.nextInt();
+
+        int[] table = new int[10];
+
+        for (int i = 0; i < 10; i++) {
+            table[i] = number * (i + 1);
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > 0) {
-                if (arr[i] % 2 == 0) {
-                    System.out.println(arr[i] + " is Positive and Even");
-                } else {
-                    System.out.println(arr[i] + " is Positive and Odd");
-                }
-            } else if (arr[i] < 0) {
-                System.out.println(arr[i] + " is Negative");
-            } else {
-                System.out.println(arr[i] + " is Zero");
-            }
-        }
-
-        // Compare first and last
-        if (arr[0] == arr[4]) {
-            System.out.println("First and last elements are equal");
-        } else if (arr[0] > arr[4]) {
-            System.out.println("First element is greater than last");
-        } else {
-            System.out.println("First element is less than last");
+        for (int i = 0; i < 10; i++) {
+            System.out.println(number + " * " + (i + 1) + " = " + table[i]);
         }
     }
 }
